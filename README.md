@@ -1,5 +1,4 @@
 # Texcel
-- [Download](https://drive.google.com/file/d/1ep2cwHkkezHWEKE4QPuuUZP5ylE2utBi/view?usp=sharing)
 - Digital Amplifier의 hit rate 결과로 출력된 text 파일을 Excel로 옮겨주는 프로그램
 ## Project History
 ### 2022
