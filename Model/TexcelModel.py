@@ -1,12 +1,9 @@
 import os
+import re
 from datetime import datetime
 from tkinter import messagebox
-
-import natsort
 import pandas as pd
-
 from Model import TexcelConfig
-
 
 class TexcelModel:
     def __init__(self):
@@ -16,6 +13,17 @@ class TexcelModel:
 
     def set_last_paths(self, save_path, load_path):
         self.config.save_last_values(save_path, load_path)
+
+    def structured_key(self, filename):
+        parts = filename.split('_')
+        key = []
+        for part in parts:
+            if part.isdigit():
+                key.append(int(part))
+            else:
+                nums = re.findall(r'\d+', part)
+                key.extend([int(n) for n in nums])
+        return key
 
     def make_excel_file(self):
         def extract_number(x):
@@ -30,8 +38,10 @@ class TexcelModel:
         if self.load_path == "" or self.save_path == "":
             messagebox.showwarning("Notice", "No valid directory has been selected. Please reselect")
             return
-
-        files = natsort.natsorted([file for file in os.listdir(self.load_path) if file.endswith(".txt")])
+        files = sorted(
+            [file for file in os.listdir(self.load_path) if file.endswith(".txt")],
+            key=lambda f: self.structured_key(f)
+        )
         df_list = []
         for file_idx in range(len(files)):
             with open(os.path.join(self.load_path, files[file_idx]), 'r') as txt_file:
