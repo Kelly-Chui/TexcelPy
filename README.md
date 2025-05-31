@@ -19,7 +19,7 @@
 
 - **Jan 2**:
   - "Texcel"로 프로젝트 이름 변경
-  - `openpyxl`을 더 이상 사용하지 않고 `pandas`를 이용함
+  - `pandas` 의존성 추가
 - **Jan 3**:
   - MVC 패턴에 맞게 코드 정리
   - `tk.Label()`, `tk.Button()` 컴포넌트들을 `ttk.Label()`, `ttk.Button()`로 변경
@@ -31,6 +31,7 @@
 
 - **Feb 18**
   - 더 이상 사용하지 않는 파일 삭제
-
-## References
-- [natsort](https://github.com/SethMMorton/natsort)
+- **May 31**
+  - natsort 의존성 제거
+  - 파일 저장 경로 변경, 더 이상 관리자 권한을 요구하지 않음
+  - 코드 구조 개선, MVC 패턴에 맞게 변경
