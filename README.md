@@ -27,5 +27,10 @@
   - 스트립 에러 픽스
   - 결과 열기 버튼 추가
 
+### 2025
+
+- **Feb 18**
+  - 더 이상 사용하지 않는 파일 삭제
+
 ## References
 - [natsort](https://github.com/SethMMorton/natsort)
