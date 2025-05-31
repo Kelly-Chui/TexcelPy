@@ -3,12 +3,9 @@ import os
 
 class Config:
     def __init__(self):
-        try:
-            if not os.path.exists("C:/Program Files/Texcel"):
-                os.makedirs("C:/Program Files/Texcel")
-        except OSError:
-            print("Error: Failed to create the directory.")
-        self.config_file_path = "C:/Program Files/Texcel/config.ini"
+        self.base_path = os.path.join(os.environ["LOCALAPPDATA"], "Texcel")
+        os.makedirs(self.base_path, exist_ok=True)
+        self.config_file_path = os.path.join(self.base_path, "config.ini")
         self.save_path = ""
         self.load_path = ""
         config = configparser.ConfigParser()
