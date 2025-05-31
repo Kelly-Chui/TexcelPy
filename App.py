@@ -15,7 +15,6 @@ class App(tk.Tk):
         view.grid(padx=20, pady=20)
 
         controller = Controller.TexcelController(model, view)
-        view.set_controller(controller)
 
 if __name__ == '__main__':
     app = App()
